@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Bookable;
+use App\Http\Controllers\Api\BookableController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,11 +13,9 @@ use App\Models\Bookable;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+/*
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::get('bookables', function (Request $request) {
-    return Bookable::all();
-});
+*/
+Route::apiResource('bookables', BookableController::class)->only(['index', 'show']);
